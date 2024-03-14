@@ -3,13 +3,17 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Traits\Models\HasStatus;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRoles, HasStatus;
+
+    protected $guard_name = 'admin';
 
     /**
      * The attributes that are mass assignable.
@@ -43,5 +47,20 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    const TYPE_ADMIN = 'admin';
+    public function scopeIsTypeAdmin()
+    {
+        if ($this->type == self::TYPE_ADMIN) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function scopeAdmin($query)
+    {
+        return $query->where('type', self::TYPE_ADMIN);
     }
 }
