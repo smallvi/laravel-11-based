@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Controllers\Admin\Controller;
+use App\Http\Requests\Admin\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,8 +16,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        dump('Web Login');
-        return view('auth.login');
+        return view('admin.auth.login');
     }
 
     /**
@@ -28,8 +27,16 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-        dd('web auth controller');
-        return redirect()->intended(route('admin.dashboard', absolute: false));
+
+        // $sub_domain_mode = env('SUBDOMAIN_MODE', FALSE);
+
+        // if($sub_domain_mode){
+        //     return redirect()->intended('/dashboard');
+        // }
+
+        // return redirect()->intended('admin/dashboard');
+
+        return redirect()->intended(route('admin.dashboard'));
     }
 
     /**

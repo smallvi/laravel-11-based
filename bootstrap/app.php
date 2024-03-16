@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Middleware\CustomAuth;
+use App\Http\Middlewares\CustomAuth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -32,8 +32,20 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'custom.auth' => CustomAuth::class
+            'custom.auth' => CustomAuth::class,
         ]);
+
+        $middleware->group(
+            'admin',
+            [
+                \Illuminate\Cookie\Middleware\EncryptCookies::class,
+                \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+                \Illuminate\Session\Middleware\StartSession::class,
+                \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+                \Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class,
+                \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            ]
+        );
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

@@ -1,18 +1,20 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Middlewares;
 
 use Closure;
 use App\Models\User;
+use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-class CustomAuth
+class CustomAuth extends Middleware
 {
     public function handle(Request $request, Closure $next, $type = null): Response
     {
+
         if (is_null($type)) {
             return abort(403, 'Nullable User Type');
         }
