@@ -15,23 +15,23 @@
                         </form>
                     </li>
                     <li>
-                        <a href="https://flowbite-admin-dashboard.vercel.app/" class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
+                        <a href="#" class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
                             <i class="fa-solid fa-chart-pie text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></i>
                             <span class="ml-3" sidebar-toggle-item>Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700" aria-controls="dropdown-layouts" data-collapse-toggle="dropdown-layouts">
-                            <i class="fa-solid fa-tent-arrows-down text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></i>
-                            <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Layouts</span>
+                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700" aria-controls="dropdown-products" data-collapse-toggle="dropdown-products">
+                            <i class="fa-solid fa-blender text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></i>
+                            <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Products</span>
                             <i class="fa-solid fa-caret-down w-6 h-6"></i>
                         </button>
-                        <ul id="dropdown-layouts" class="hidden py-2 space-y-2">
+                        <ul id="dropdown-products" class="{{ Nav::urlDontHave(['product-categories','products']) }} py-2 space-y-2">
                             <li>
-                                <a href="https://flowbite-admin-dashboard.vercel.app/layouts/stacked/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Stacked</a>
+                                <a href=" {{ route('admin.product-categories.index') }} " class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 {{ Nav::urlHave(['product-categories']) }}">{{ trans_choice('labels.product', 2) }}</a>
                             </li>
                             <li>
-                                <a href="https://flowbite-admin-dashboard.vercel.app/layouts/sidebar/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sidebar</a>
+                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">{{ trans_choice('labels.product_category', 2) }}</a>
                             </li>
                         </ul>
                     </li>
@@ -41,18 +41,18 @@
                             <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>CRUD</span>
                             <i class="fa-solid fa-caret-down w-6 h-6"></i>
                         </button>
-                        <ul id="dropdown-crud" class="space-y-2 py-2 ">
+                        <ul id="dropdown-crud" class="hidden space-y-2 py-2 ">
                             <li>
-                                <a href="https://flowbite-admin-dashboard.vercel.app/crud/products/" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700  bg-gray-100 dark:bg-gray-700 ">Products</a>
+                                <a href="#" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Products</a>
                             </li>
                             <li>
-                                <a href="https://flowbite-admin-dashboard.vercel.app/crud/users/" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Users</a>
+                                <a href="#" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Users</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="https://flowbite-admin-dashboard.vercel.app/settings/" class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ">
-                        <i class="fa-solid fa-pizza-slice text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></i>
+                        <a href="#" class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ">
+                            <i class="fa-solid fa-pizza-slice text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></i>
                             <span class="ml-3" sidebar-toggle-item>Settings</span>
                         </a>
                     </li>
@@ -64,17 +64,17 @@
                         </button>
                         <ul id="dropdown-pages" class="hidden py-2 space-y-2">
                             <li>
-                                <a href="https://flowbite-admin-dashboard.vercel.app/pages/pricing/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Pricing</a>
+                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Pricing</a>
                             </li>
                             <li>
-                                <a href="https://flowbite-admin-dashboard.vercel.app/pages/maintenance/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Maintenance</a>
+                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Maintenance</a>
                             </li>
                             <li>
-                                <a href="https://flowbite-admin-dashboard.vercel.app/pages/404/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">404
+                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">404
                                     not found</a>
                             </li>
                             <li>
-                                <a href="https://flowbite-admin-dashboard.vercel.app/pages/500/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">500
+                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">500
                                     server error</a>
                             </li>
                         </ul>
@@ -87,23 +87,23 @@
                         </button>
                         <ul id="dropdown-auth" class="hidden py-2 space-y-2">
                             <li>
-                                <a href="https://flowbite-admin-dashboard.vercel.app/authentication/sign-in/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sign
+                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sign
                                     in</a>
                             </li>
                             <li>
-                                <a href="https://flowbite-admin-dashboard.vercel.app/authentication/sign-up/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sign
+                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sign
                                     up</a>
                             </li>
                             <li>
-                                <a href="https://flowbite-admin-dashboard.vercel.app/authentication/forgot-password/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Forgot
+                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Forgot
                                     password</a>
                             </li>
                             <li>
-                                <a href="https://flowbite-admin-dashboard.vercel.app/authentication/reset-password/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Reset
+                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Reset
                                     password</a>
                             </li>
                             <li>
-                                <a href="https://flowbite-admin-dashboard.vercel.app/authentication/profile-lock/" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Profile
+                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Profile
                                     lock</a>
                             </li>
                         </ul>
@@ -119,7 +119,7 @@
                                 <a href="{{ route('admin.admins.index') }}" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Admins</a>
                             </li>
                             <li>
-                                <a href="https://flowbite-admin-dashboard.vercel.app/playground/sidebar/" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Sidebar</a>
+                                <a href="#" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Sidebar</a>
                             </li>
                         </ul>
                     </li>

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
-class ModuleRolePermissionSeeder extends Seeder
+class PermissionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -62,7 +62,6 @@ class ModuleRolePermissionSeeder extends Seeder
                 }
             }
         }
-
     }
 
     public function getRoleData()
@@ -87,6 +86,14 @@ class ModuleRolePermissionSeeder extends Seeder
                     [
                         'name' => 'admin',
                         'action' => ['create', 'read', 'update']
+                    ],
+                    [
+                        'name' => 'product',
+                        'action' => ['create', 'read', 'update', 'delete']
+                    ],
+                    [
+                        'name' => 'product_category',
+                        'action' => ['create', 'read', 'update', 'delete']
                     ],
                 ]
             ]

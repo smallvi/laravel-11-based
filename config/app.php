@@ -132,6 +132,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'Permission' => Spatie\Permission\Models\Permission::class,
+        'Misc' => App\Helpers\Misc::class,
+        'Nav' => App\Helpers\Nav::class,
     ])->toArray(),
 
 ];
