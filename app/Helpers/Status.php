@@ -14,7 +14,7 @@ class Status
         $configs = [
             self::STATUS_ACTIVE => [
                 'text' => 'Active',
-                'class' => 'bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300'
+                'class' => 'bg-green-400 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300'
             ],
             self::STATUS_INACTIVE => [
                 'text' => 'Inactive',

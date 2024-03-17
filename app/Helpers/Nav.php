@@ -35,7 +35,7 @@ class Nav
         $names = !is_array($names) ? [$names] : $names;
 
         foreach ($names as $name) {
-            if ($uri == $name) {
+            if (strpos($uri,$name) !== false){
                 return $class;
             }
         }
@@ -54,7 +54,7 @@ class Nav
         $names = !is_array($names) ? [$names] : $names;
 
         foreach ($names as $name) {
-            if ($uri == $name) {
+            if (strpos($uri,$name) !== false) {
                 return;
             }
         }

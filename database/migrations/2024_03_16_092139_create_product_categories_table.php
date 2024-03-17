@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('parent_id')->references('id')->on('product_categories');
             $table->string('status')->default('active');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

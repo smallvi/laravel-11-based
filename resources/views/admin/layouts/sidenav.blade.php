@@ -8,118 +8,46 @@
                             <label for="mobile-search" class="sr-only">Search</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                    <i class="fa-solid fa-magnifying-glass w-5 h-5 text-gray-500"></i>
+                                    <i class="w-5 h-5 text-gray-500 fa-solid fa-magnifying-glass"></i>
                                 </div>
                                 <input type="text" name="email" id="mobile-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-200 dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Search">
                             </div>
                         </form>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
-                            <i class="fa-solid fa-chart-pie text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></i>
+                        <a href="{{ route('admin.dashboard') }}" class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 {{ Nav::urlHave(['dashboard']) }}">
+                            <i class="text-gray-500 transition duration-75 fa-solid fa-chart-pie group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></i>
                             <span class="ml-3" sidebar-toggle-item>Dashboard</span>
                         </a>
                     </li>
                     <li>
                         <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700" aria-controls="dropdown-products" data-collapse-toggle="dropdown-products">
-                            <i class="fa-solid fa-blender text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></i>
-                            <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Products</span>
-                            <i class="fa-solid fa-caret-down w-6 h-6"></i>
+                            <i class="text-gray-500 transition duration-75 fa-solid fa-blender group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></i>
+                            <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>{{ trans_choice('labels.product', 2) }}</span>
+                            <i class="w-6 h-6 fa-solid fa-caret-down"></i>
                         </button>
                         <ul id="dropdown-products" class="{{ Nav::urlDontHave(['product-categories','products']) }} py-2 space-y-2">
                             <li>
-                                <a href=" {{ route('admin.product-categories.index') }} " class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 {{ Nav::urlHave(['product-categories']) }}">{{ trans_choice('labels.product', 2) }}</a>
+                                <a href="{{ route('admin.product-categories.index') }}" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 {{ Nav::urlHave(['product-categories']) }}">{{ trans_choice('labels.product_category', 2) }}</a>
                             </li>
                             <li>
-                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">{{ trans_choice('labels.product_category', 2) }}</a>
+                                <a href=" # " class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 {{ Nav::urlHave(['products']) }}">{{ trans_choice('labels.product', 2) }}</a>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700" aria-controls="dropdown-crud" data-collapse-toggle="dropdown-crud">
-                            <i class="fa-solid fa-pizza-slice text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></i>
-                            <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>CRUD</span>
-                            <i class="fa-solid fa-caret-down w-6 h-6"></i>
-                        </button>
-                        <ul id="dropdown-crud" class="hidden space-y-2 py-2 ">
-                            <li>
-                                <a href="#" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Products</a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Users</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ">
-                            <i class="fa-solid fa-pizza-slice text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></i>
-                            <span class="ml-3" sidebar-toggle-item>Settings</span>
-                        </a>
-                    </li>
-                    <li>
-                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700" aria-controls="dropdown-pages" data-collapse-toggle="dropdown-pages">
-                            <i class="fa-solid fa-pizza-slice text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></i>
-                            <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Pages</span>
-                            <i class="fa-solid fa-caret-down w-6 h-6"></i>
-                        </button>
-                        <ul id="dropdown-pages" class="hidden py-2 space-y-2">
-                            <li>
-                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Pricing</a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Maintenance</a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">404
-                                    not found</a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">500
-                                    server error</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700" aria-controls="dropdown-auth" data-collapse-toggle="dropdown-auth">
-                            <i class="fa-solid fa-pizza-slice text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></i>
-                            <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Authentication</span>
-                            <i class="fa-solid fa-caret-down w-6 h-6"></i>
-                        </button>
-                        <ul id="dropdown-auth" class="hidden py-2 space-y-2">
-                            <li>
-                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sign
-                                    in</a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sign
-                                    up</a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Forgot
-                                    password</a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Reset
-                                    password</a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Profile
-                                    lock</a>
-                            </li>
-                        </ul>
-                    </li>
+
                     <li>
                         <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700" aria-controls="dropdown-playground" data-collapse-toggle="dropdown-playground">
-                            <i class="fa-solid fa-users-gear text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></i>
+                            <i class="text-gray-500 transition duration-75 fa-solid fa-users-gear group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></i>
                             <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Advance Setting</span>
-                            <i class="fa-solid fa-caret-down w-6 h-6"></i>
+                            <i class="w-6 h-6 fa-solid fa-caret-down"></i>
                         </button>
-                        <ul id="dropdown-playground" class="space-y-2 py-2 hidden ">
+                        <ul id="dropdown-playground" class="hidden py-2 space-y-2 ">
                             <li>
-                                <a href="{{ route('admin.admins.index') }}" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Admins</a>
+                                <a href="{{ route('admin.admins.index') }}" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Admins</a>
                             </li>
                             <li>
-                                <a href="#" class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Sidebar</a>
+                                <a href="#" class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 pl-11 dark:text-gray-200 dark:hover:bg-gray-700 ">Sidebar</a>
                             </li>
                         </ul>
                     </li>

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('quantity')->default(0);
             $table->foreignId('product_category_id')->constrained();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

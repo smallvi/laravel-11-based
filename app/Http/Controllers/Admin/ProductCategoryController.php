@@ -9,63 +9,63 @@ use Illuminate\Support\Facades\Gate;
 
 class ProductCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(Request $request)
     {
         if (!Gate::allows('product_category.read')) {
             abort(403);
         }
 
-        return view('admin.product_categories.index');
+        $product_categories = ProductCategory::query()
+            ->when($request->has('search'), function ($query) use ($request) {
+                $query->where('name', 'like', '%' . $request->search . '%')
+                    ->orWhere('status', 'like', '%' . $request->search . '%');
+            })
+            ->paginate($perPage = 10, $columns = ['*'], $pageName = 'product_categories');
+
+        return view('admin.product_categories.index', compact('request', 'product_categories'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        if (!Gate::allows('product_category.create')) {
+            abort(403);
+        }
+
+        return view('admin.product_categories.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        if (!Gate::allows('product_category.create')) {
+            abort(403);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(ProductCategory $productCategory)
     {
-        //
+        if (!Gate::allows('product_category.read')) {
+            abort(403);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(ProductCategory $productCategory)
     {
-        //
+        if (!Gate::allows('product_category.update')) {
+            abort(403);
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, ProductCategory $productCategory)
     {
-        //
+        if (!Gate::allows('product_category.update')) {
+            abort(403);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(ProductCategory $productCategory)
     {
-        //
+        if (!Gate::allows('product_category.delete')) {
+            abort(403);
+        }
     }
 }
