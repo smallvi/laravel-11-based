@@ -28,15 +28,14 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        // $sub_domain_mode = env('SUBDOMAIN_MODE', FALSE);
+        $sub_domain_mode = env('SUBDOMAIN_MODE', FALSE);
 
-        // if($sub_domain_mode){
-        //     return redirect()->intended('/dashboard');
-        // }
+        if($sub_domain_mode){
+            return redirect()->intended('/dashboard');
+        }
 
-        // return redirect()->intended('admin/dashboard');
+        return redirect()->intended('admin/dashboard');
 
-        return redirect()->intended(route('admin.dashboard'));
     }
 
     /**
@@ -44,7 +43,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        Auth::guard('web')->logout();
+        Auth::guard('admin')->logout();
 
         $request->session()->invalidate();
 
