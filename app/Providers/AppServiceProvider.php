@@ -2,13 +2,19 @@
 
 namespace App\Providers;
 
+
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use App\View\Composers\ActiveStatusComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
+
+    protected $view_composers = [
+        ActiveStatusComposer::class =>
+        ['admin.product_categories.*', 'dashboard'],
+    ];
+
     public function register(): void
     {
         //
@@ -19,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        foreach ($this->view_composers as $view_composer => $views) {
+            View::composer($views, $view_composer);
+        }
     }
 }

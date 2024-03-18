@@ -32,4 +32,12 @@ class Status
 
         return $configs[$status];
     }
+
+    public static function getActiveStatusText(): array
+    {
+        return [
+            self::STATUS_ACTIVE => __('labels.active'),
+            self::STATUS_INACTIVE => __('labels.inactive')
+        ];
+    }
 }
