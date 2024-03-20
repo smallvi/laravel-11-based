@@ -8,16 +8,12 @@ use Illuminate\View\Component;
 
 class SelectInput extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public $options;
-    public $name;
 
-    public function __construct($options, $name)
+    public $options;
+
+    public function __construct($options)
     {
         $this->options = $options;
-        $this->name = $name;
     }
 
     /**

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use App\Services\ProductCategoryService;
+use App\Http\Requests\Admin\ProductCategoryRequest;
 
 class ProductCategoryController extends Controller
 {
@@ -34,11 +36,17 @@ class ProductCategoryController extends Controller
         return view('admin.product_categories.create');
     }
 
-    public function store(Request $request)
+    public function store(ProductCategoryRequest $request)
     {
         if (!Gate::allows('product_category.create')) {
             abort(403);
         }
+
+        (new ProductCategoryService())
+            ->withRequest($request)
+            ->store($request);
+
+        return redirect()->route('admin.product-categories.index');
     }
 
     public function show(ProductCategory $productCategory)

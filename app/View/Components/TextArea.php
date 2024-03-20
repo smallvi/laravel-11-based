@@ -8,9 +8,7 @@ use Illuminate\View\Component;
 
 class TextArea extends Component
 {
-    /**
-     * Create a new component instance.
-     */
+
     public function __construct()
     {
         //

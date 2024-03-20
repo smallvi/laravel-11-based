@@ -6,13 +6,17 @@ namespace App\Providers;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use App\View\Composers\ActiveStatusComposer;
+use App\View\Composers\DiscountTypeComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
 
     protected $view_composers = [
         ActiveStatusComposer::class =>
-        ['admin.product_categories.*', 'dashboard'],
+        ['admin.product_categories.*',],
+
+        DiscountTypeComposer::class =>
+        ['admin.product_categories.*',],
     ];
 
     public function register(): void

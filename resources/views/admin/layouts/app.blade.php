@@ -47,7 +47,7 @@
 
         <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
             <main>
-                <div class="px-4 pt-4 bg-white block sm:flex items-center justify-between  lg:mt-1.5 dark:bg-gray-800 ">
+                <div class="px-4 pt-4 bg-white block sm:flex items-center justify-between  lg:mt-1.5 dark:bg-gray-900 ">
                     <div class="w-full mb-1">
                         <div class="mb-4">
                             @include('admin.layouts.breadcrumb',['title' => $title,'action' => $action ?? null])
@@ -57,6 +57,7 @@
                 </div>
 
                 @yield('content')
+
                 @include('admin.layouts.footer',['copyright'=>'Copyright © 2024 Yeo (202401000800)'])
             </main>
 
