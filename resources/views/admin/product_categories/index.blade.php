@@ -2,7 +2,9 @@
 
 @section('content')
 
-
+@if(session()->has('success'))
+@dump(session()->get('success'))
+@endif
 
 <div class="col-span-2 p-2 ">
 
@@ -68,10 +70,15 @@
                                         </a>
                                         @endcan
                                         @can('product_category.delete')
-                                        <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
-                                            <i class="w-4 h-4 mr-2 fa-solid fa-trash-can"></i>
-                                            Delete
-                                        </button>
+                                        <form action='{{ route("admin.product-categories.destroy", ["product_category"=> $product_category->id]) }}' method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                                                <i class="w-4 h-4 mr-2 fa-solid fa-trash-can"></i>
+                                                Delete
+                                            </button>
+                                        </form>
+
                                         @endcan
                                     </td>
                                 </tr>
@@ -92,9 +99,19 @@
         </div>
     </div>
 </div>
-
+@include('admin.layouts.modal')
 @endsection
 
 @push('scripts')
 
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+    // $(document).find('#popup-modal').addClass('hidden');
+    // $('#popup-modal').removeClass('hidden');
+});
+</script>
 @endpush

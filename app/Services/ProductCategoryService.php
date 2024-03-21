@@ -13,7 +13,7 @@ class ProductCategoryService
 
     public function __construct()
     {
-        $this->model = $this->withModel(new ProductCategory());
+        $this->model = new ProductCategory();
     }
 
     public function withModel(Model $model)
@@ -36,6 +36,13 @@ class ProductCategoryService
             'sku' => $this->request->get('sku'),
             'description' => $this->request->get('description')
         ]);
+
+        return $this;
+    }
+
+    public function destroy()
+    {
+        $this->model->delete();
 
         return $this;
     }

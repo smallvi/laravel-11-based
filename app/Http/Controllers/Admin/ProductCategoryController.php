@@ -75,5 +75,11 @@ class ProductCategoryController extends Controller
         if (!Gate::allows('product_category.delete')) {
             abort(403);
         }
+
+        (new ProductCategoryService())
+            ->withModel($productCategory)
+            ->destroy();
+
+        return redirect()->route('admin.product-categories.index')->with('success','Delete Product Categories Successfully');
     }
 }
